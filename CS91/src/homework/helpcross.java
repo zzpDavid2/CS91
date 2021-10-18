@@ -1,3 +1,4 @@
+package homework;
 // "Why Did the Cow Cross the Road"
 // Bronze February 2017 Problem 1
 // http://usaco.org/index.php?page=viewproblem2&cpid=714
