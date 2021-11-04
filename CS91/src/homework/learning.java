@@ -12,10 +12,14 @@ public class learning {
     int N = in.nextInt();
     int A = in.nextInt();
     int B = in.nextInt();
-    ArrayList<Boolean> haveSpot = new ArrayList<Boolean>();
+    ArrayList<cow> cows = new ArrayList<cow>();
     for(int i=0; i<N;i++) {
     	String s = in.next();
-    	int 
+    	
+    	int a=in.nextInt();
+    	
+    	cow c= new cow(a,
+    	cows.add();
     }
     in.close();
     
@@ -25,5 +29,14 @@ public class learning {
     out.println(result);
     System.out.println(result);
     out.close();
+  }
+  
+  public class cow {
+	  int n;
+	  boolean hasSpot;
+	  public cow(int a, boolean b) {
+		  n=a;
+		  hasSpot = b;
+	  }
   }
 }
