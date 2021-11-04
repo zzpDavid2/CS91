@@ -15,7 +15,7 @@ public class learning {
     ArrayList<Boolean> haveSpot = new ArrayList<Boolean>();
     for(int i=0; i<N;i++) {
     	String s = in.next();
-    	
+    	int 
     }
     in.close();
     
