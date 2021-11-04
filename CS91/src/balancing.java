@@ -37,21 +37,41 @@ public class balancing {
     	int fenceX = byX[ix].x -1;
     	
         if (ix == 0 || byX[ix-1].x == byX[ix].x) {
-            // TODO: additional sliding window w/vertical fence y sliding
+            //  additional sliding window w/vertical fence y sliding
             
+        	for(int jy = 0; jy<n;jy++)
             {
-                int balance = 0;
+        		int fenceY = byY[jy].y - 1;
                 
-                // TODO: check if balance level is best so
+                //  check if balance level is best so
+                if (jy == 0 || byY[jy-1].y < byY[jy].y)
                 {
+                	int balance = Math.max( Math.max(ul, ur)
+                			, Math.max(ll, lr));
+                	
                     result = Math.min(result, balance);
                 }
+                
+                if(byY[jy].x < fenceX) {
+                	ul++;
+                	ll--;
+                }else {
+                	ur++;
+                	lr--;
+                }
+                
             }
-            lr--;
-            ll++;
+        	
+        	ll += ul;
+        	ul = 0;
+        	lr += ur;
+        	ur =0;
+            
         }
     	
     	// slide cow ix from right to left side of the fence, b/c ix is about to increase by 1 b/c of our loop
+        lr--;
+        ll++;
     }
     
     PrintWriter out = new PrintWriter(new File("balancing.out"));
