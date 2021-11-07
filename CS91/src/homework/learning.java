@@ -12,18 +12,32 @@ public class learning {
     int N = in.nextInt();
     int A = in.nextInt();
     int B = in.nextInt();
-    ArrayList<cow> cows = new ArrayList<cow>();
-    for(int i=0; i<N;i++) {
-    	String s = in.next();
-    	
-    	int a=in.nextInt();
-    	
-    	cow c= new cow(a,
-    	cows.add();
+    int result = B-A+1;
+	System.out.println(result);
+    Cow prev = new Cow(in);
+    if(prev.noSpot) {
+    	result -=N-prev.n;
+    }
+    for(int i=1; i<N;i++) {
+    	System.out.println(i);
+    	Cow c= new Cow(in);
+    	if(prev.noSpot) {
+    		result --;
+    		if(prev.noSpot) {
+    			result -= prev.n - c.n;
+    			System.out.println(c.n - prev.n + " " + result);
+    		}else {
+    			result -= (prev.n - c.n)/2;
+    			System.out.println(c.n - prev.n + " " + result);
+    		}
+    	}
+    	prev = c;
     }
     in.close();
     
-    int result = 0;
+    if(prev.noSpot) {
+    	result-=prev.n;
+    }
 
     PrintWriter out = new PrintWriter(new File("learning.out"));
     out.println(result);
@@ -31,12 +45,12 @@ public class learning {
     out.close();
   }
   
-  public class cow {
+  static class Cow {
 	  int n;
-	  boolean hasSpot;
-	  public cow(int a, boolean b) {
-		  n=a;
-		  hasSpot = b;
+	  boolean noSpot;
+	  public Cow(Scanner in) {
+		  noSpot = in.next().equals("NS");
+		  n=in.nextInt();
 	  }
   }
 }
