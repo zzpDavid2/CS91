@@ -15,7 +15,7 @@ public class socdist {
     M = in.nextInt();
     farm =  new ArrayList<>(M);
     
-    int maxG= 0;
+    long maxG= 0;
     
     for(int i=0; i<M; i++) {
     	grass g = new grass(in);
@@ -25,12 +25,12 @@ public class socdist {
     }
     in.close();
     
-    int left = 1; // inclusive
-    int right = maxG; // exclusive
+    long left = 1; // inclusive
+    long right = maxG; // exclusive
     
     System.out.println(N);
     
-    int mid=(left+right)/2;
+    long mid=(left+right)/2;
     while(left<right) {
     	boolean b = distance(mid);
     	if(b) {
@@ -43,17 +43,17 @@ public class socdist {
     	mid = (left+right)/2;
     }
     
-    int result = mid;
+    long result = mid;
     
     PrintWriter out = new PrintWriter(new File("socdist.out"));
     System.out.println(result);
     out.println(result);
     out.close();
   }
-  public static boolean distance(int d) {
+  public static boolean distance(long d) {
 	  int c=0;
 	  for(int i=0;i< M; i++) {
-		  int n =1+((farm.get(i).length-1)/d);
+		  long n =1+((farm.get(i).length-1)/d);
 		  c+=n;
 		  System.out.println(farm.get(i).length+ " " + n);
 		  if (c>=N) return true;
@@ -62,9 +62,9 @@ public class socdist {
   }
   
   public static class grass{
-	  int a;
-	  int b;
-	  int length;
+	  long a;
+	  long b;
+	  long length;
 	  public grass(Scanner in) {
 		  a = in.nextInt();
 		  b = in.nextInt();
